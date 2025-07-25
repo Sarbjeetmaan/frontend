@@ -44,35 +44,37 @@
 
 /* ===== SEARCH BAR ===== */
 .search-bar {
+  position: relative;
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
-  border-radius: 999px;
-  padding: 6px 14px;
-  width: 480px;              /* ✅ Set fixed width like in image */
-  height: 36px;              /* ✅ Match height for compactness */
-  flex-shrink: 0;            /* Prevent shrinking */
-  box-shadow: none;
-  border: none;
-}
-
-.search-icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  flex-shrink: 0;
+  background-color: var(--bg);
+  border-radius: 20px;
+  width: 500px;
+  max-width: 100%;
+  flex-grow: 1;
+  height: 36px;
+  padding-left: 36px; /* Make room for the icon */
 }
 
 .search-bar input {
   border: none;
   outline: none;
   background: transparent;
-  margin-left: 10px;
   width: 100%;
   font-size: 14px;
-  color: #333;
-  padding: 0;
+  color: var(--text);
 }
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+
 
 
 /* ===== NAV BUTTONS ===== */
@@ -117,29 +119,44 @@
   z-index: 999;
   overflow-x: auto;
   font-family: 'Inter', sans-serif;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+
 .categories-bar::-webkit-scrollbar {
   display: none;
 }
+
 .categories-bar span {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--muted); /* default gray */
   cursor: pointer;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 4px;
-  transition: 0.2s;
+  font-weight: 500;  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
+
 .categories-bar span:hover {
-  color: var(--highlight);
+  color: #5e5b5b;
   background-color: var(--hover);
 }
-.active-category {
-  background-color: var(--highlight);
-  color: #fff !important;
+
+/* ✅ Active category stays black */
+.category-item.active {
+  color: #5e5b5b;
   font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.05); /* light gray background */
+  border-radius: 6px;
 }
+
+.categories-bar .active-category {
+  color: #5e5b5b;
+  font-weight: 600;
+  background-color: rgba(81, 77, 77, 0.06); /* subtle background */
+  border-radius: 6px;
+}
+
 
 /* ===== MAIN CONTENT ===== */
 .main-content {

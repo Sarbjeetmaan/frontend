@@ -57,9 +57,9 @@ export const Navbar = () => {
       <div className="navbar">
         <a href="/" className="brand-name">El<span className="dot">•</span>oc</a>
 
-        <div className="search-bar">
-          <img src={searchIcon} alt="Search" className="search-icon" />
-          <input type="text" placeholder="Search for products, brands and more" />
+        <div class="search-bar">
+        <img src={searchIcon} class="search-icon" alt="Search" />
+        <input type="text" placeholder="Search for products..." />
         </div>
 
         <div className="nav-buttons">
