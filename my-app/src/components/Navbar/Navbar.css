@@ -1,5 +1,5 @@
 :root {
-  --highlight: #cc0000; /* red accent */
+  --highlight: #cc0000;
   --text: #111;
   --bg: #fff;
   --light-gray: #f6f6f6;
@@ -28,40 +28,41 @@
 .brand-name {
   font-size: 24px;
   font-weight: 800;
-  color: #cc0000; /* your exact red */
+  color: var(--highlight);
   font-family: 'Montserrat', sans-serif;
   font-style: italic;
   letter-spacing: 0.5px;
-  white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 .brand-name .dot {
   font-size: 28px;
   font-weight: 900;
-  color: #cc0000; /* ensure dot is red too */
+  color: var(--highlight);
 }
-.brand-name:hover {
-  color: #cc0000; /* no change on hover */
-}
-
 
 /* ===== SEARCH BAR ===== */
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: var(--light-gray);
-  border-radius: 20px;
-  padding: 6px 16px;
-  width: 500px;
-  max-width: 100%;
-  flex-grow: 1;
+  background-color: #f5f5f5;
+  border-radius: 999px;
+  padding: 6px 14px;
+  width: 480px;              /* ✅ Set fixed width like in image */
+  height: 36px;              /* ✅ Match height for compactness */
+  flex-shrink: 0;            /* Prevent shrinking */
+  box-shadow: none;
+  border: none;
 }
+
 .search-icon {
   width: 18px;
   height: 18px;
   opacity: 0.6;
+  flex-shrink: 0;
 }
+
 .search-bar input {
   border: none;
   outline: none;
@@ -69,14 +70,16 @@
   margin-left: 10px;
   width: 100%;
   font-size: 14px;
-  color: var(--text);
+  color: #333;
+  padding: 0;
 }
+
 
 /* ===== NAV BUTTONS ===== */
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 .nav-btn {
   display: flex;
@@ -87,14 +90,15 @@
   font-size: 14px;
   color: var(--text);
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 .nav-btn:hover {
-  color: var(--muted);
+  color: var(--highlight);
+  transform: translateY(-1px);
 }
 .nav-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-right: 6px;
 }
 
@@ -103,7 +107,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   padding: 10px 0;
   background-color: var(--light-gray);
   position: fixed;
@@ -112,6 +116,7 @@
   right: 0;
   z-index: 999;
   overflow-x: auto;
+  font-family: 'Inter', sans-serif;
 }
 .categories-bar::-webkit-scrollbar {
   display: none;
@@ -124,44 +129,23 @@
   padding: 4px 10px;
   border-radius: 4px;
   transition: 0.2s;
+  white-space: nowrap;
 }
 .categories-bar span:hover {
-  color: var(--text); /* Keep default text color */
+  color: var(--highlight);
+  background-color: var(--hover);
 }
-
-
 .active-category {
-  color: var(--muted);
-  color: #fff;
+  background-color: var(--highlight);
+  color: #fff !important;
   font-weight: 600;
 }
 
-/* ===== MAIN CONTENT PADDING ===== */
+/* ===== MAIN CONTENT ===== */
 .main-content {
   padding-top: 120px;
   background-color: var(--bg);
   color: var(--text);
-}
-
-/* ===== PRODUCT CARD (Optional Component Style) ===== */
-.product-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 16px;
-  border-radius: 6px;
-  text-align: center;
-  transition: box-shadow 0.2s ease;
-}
-.product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-.product-card h4 {
-  margin-top: 10px;
-  font-size: 16px;
-}
-.product-card p {
-  font-size: 14px;
-  color: var(--muted);
 }
 
 /* ===== LOGIN POPUP ===== */

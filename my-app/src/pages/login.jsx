@@ -1,3 +1,4 @@
+// Login.jsx
 import React, { useState } from 'react';
 import './login.css';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -11,14 +12,15 @@ const Login = () => {
 
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
 
   const handleLogin = () => {
-    // Dummy login validation
     if (emailOrPhone.trim() && password.trim()) {
       setIsLoggedIn(true);
       navigate(redirectTo);
     } else {
-      alert('Please enter valid credentials');
+      setError('Please enter both email/phone and password.');
     }
   };
 
@@ -36,12 +38,22 @@ const Login = () => {
           value={emailOrPhone}
           onChange={(e) => setEmailOrPhone(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="password-wrapper">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <span
+            className="toggle-password"
+            onClick={() => setShowPassword(!showPassword)}
+            title={showPassword ? "Hide Password" : "Show Password"}
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </span>
+        </div>
+        {error && <p className="error-message">{error}</p>}
         <button className="login-btn" onClick={handleLogin}>Login</button>
         <p className="signup-text">
           New to Eloc? <a href="/signup">Create an account</a>

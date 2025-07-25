@@ -3,8 +3,6 @@ import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../Context/GlobalState';
 
-const productModules = import.meta.glob('../../assets/products/*/*.js');
-
 import searchIcon from '../../assets/icons/search.png';
 import cartIcon from '../../assets/icons/shopping-cart.png';
 import userIcon from '../../assets/icons/login-avatar.png';
@@ -44,8 +42,8 @@ export const Navbar = () => {
   };
 
   const handleGoToLogin = () => {
-    setShowPrompt(false); // ✅ Hide the prompt
-    navigate('/login');   // ✅ Navigate to login
+    setShowPrompt(false);
+    navigate('/login');
   };
 
   const categories = [
